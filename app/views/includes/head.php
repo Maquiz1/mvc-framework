@@ -1,3 +1,5 @@
+<?php include '../../../app/config/config.php'; ?>
+
 <html lang="en">
 
 <head> 

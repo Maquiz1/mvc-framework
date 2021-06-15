@@ -1,30 +1,63 @@
 <?php 
     class Database {
-        private $dbHost = 'localhost';
-        private $dbUser = 'root';
-        private $dbPass = 'Data@2020';
-        private $dbName = 'mvc-framework';
+        private $dbHost = '';
+        private $dbUser = '';
+        private $dbPass = '';
+        private $dbName = '';
 
         private $statement;
         private $dbHandler;
         private $error;
 
-        public function __construct(){
-            $conn = 'mysql:host=' . $this->dbHost . ';dbName=' . $this->dbName;
-            $options = array(
-                PDO::ATTR_PERSISTENT = true,
-                PDO::ATTR_ERRMODE = PDO::ERRMODE_EXCEPTION
-            );
+            
+            public function __construct(){   
+                $conn = "mysql:host=".$this->dbHost.";dbname=".$this->dbName;
+    
+                try {
 
-            try {
-                $this->dbHandler = new PDO($conn, $this->dbUser, $this->dbPass, $options);
-            } catch (PDOException $e) {
-                $this->error = $e->getMessage();
-                echo $this->error;
-            }
-        }
+                    $this->dbHandler = new PDO($conn,$this->dbUser, $this->dbPass);
+    
+                    // set the PDO error mode to exception
+                    // $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+                    // return $conn;
+    
+                    } catch(PDOException $e) {
+                      echo "Connection failed: " . $e->getMessage();
+                    }
 
-        // Aloows us to write queries
+                    return $this->dbHandler;
+            } 
+
+
+        // private $dbHost = 'localhost';
+        // private $dbUser = 'root';
+        // private $dbPass = 'Data@2020';
+        // private $dbName = 'mvc-framework';
+
+        // private $statement;
+        // private $dbHandler;
+        // private $error;
+
+        // public function __construct(){
+        //     $conn = 'mysql:host=' . $this->dbHost . ';dbName=' . $this->dbName;
+        //     $options = array(
+        //         PDO::ATTR_PERSISTENT = true,
+        //         PDO::ATTR_ERRMODE = PDO::ERRMODE_EXCEPTION
+        //     );
+
+        //     try {
+        //         $this->dbHandler = new PDO($conn, $this->dbUser, $this->dbPass, $options);
+        //     } catch (PDOException $e) {
+        //         $this->error = $e->getMessage();
+        //         echo $this->error;
+        //     }
+
+        //     echo 'connected';
+        // }
+
+
+
+        // Alows to write queries
         public function query($sql){
             $this->statement = $this->dbHandler->prepare($sql);
         }

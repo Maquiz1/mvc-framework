@@ -1,24 +1,26 @@
 <?php
 
-    include APPROOT . '../../views/includes/head.php';  
+    include '../includes/head.php';  
     
 ?>
 
 <div id="section-landing">
 
 <?php
-    include APPROOT . '../../views/includes/navigation.php';
+    include '../includes/navigation.php';
 ?>
 
     <div class="wrapper-landing">
-        <h1>One man is crapp soft</h1>
-        <h2>is anaother man full job</h2>
+        <h1></h1>
         <?php 
-            echo $data['title'];
             // var_dump($data);
-            foreach ($data['name'] as $user){
-                echo "Infomataion: " . $user->username . $user->user_email;
-                echo "<br>";
+            if($data){
+                foreach ($data['user'] as $user){
+                    echo "Infomataion: " . $user->user_name . $user->user_email;
+                    echo "<br>";
+                }
+            }else{
+                echo 'No an user form Database';
             }
 
         ?>
@@ -27,5 +29,5 @@
 </div> 
 
 <?php
-    include APPROOT . '../../views/includes/foot.php';
+    include '../includes/foot.php';
 ?>

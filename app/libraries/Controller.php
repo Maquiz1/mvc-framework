@@ -9,7 +9,7 @@
             return new $model();
         }
 
-        public function view($view){
+        public function view($view, $data = []){
             //Load the view (check for the file)
             if (file_exists('../app/views/' . $view . '.php')){
                 require_once '../app/views/' . $view . '.php';

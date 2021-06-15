@@ -23,8 +23,26 @@ class User {
             echo $this->error;
         }
 
-        return $result;
+        var_dump($result);
     }
 }
+
+
+
+// try {
+
+//     $stmt = $conn->prepare("SELECT * FROM posts");
+//     $stmt->execute();
+
+//     // set the resulting array to associative
+//     $result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+//     while($result){
+//       return $result;
+//     }
+
+//   } catch(PDOException $e) {
+//     echo "Error: " . $e->getMessage();
+//   }
+//   $conn = null;
 
 ?>
