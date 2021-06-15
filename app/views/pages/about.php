@@ -8,10 +8,10 @@
 
 <?php
     include APPROOT . '/views/includes/navigation.php';
-?>
+?> 
 
     <div class="wrapper-landing">
-        <h1>One man is crapp soft</h1>
+        <h1>One man is crapp soft ABOUT</h1>
         <h2>about</h2>
     </div>
 

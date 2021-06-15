@@ -6,12 +6,14 @@ class Pages extends Controller {
     }
 
     public function index(){
+        $users = $this->userModal->getUsers();
         $data = [
-            'title' => 'Home Page',
-            'name'  => 'Maquiz'
+            'title' => 'Index Page Title',
+            'name'  =>  $users
         ];
         $this->view('pages/index', $data);
     }
+
 
     public function about(){
         $this->view('pages/about');
@@ -23,4 +25,3 @@ class Pages extends Controller {
 
 }
 
-?>
