@@ -23,7 +23,7 @@ class User {
             echo $this->error;
         }
 
-        var_dump($result);
+        return $result;
     }
 }
 

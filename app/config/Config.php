@@ -1,9 +1,9 @@
 <?php
     //DATABASE PARAMS
-    define('DB_HOST','');
-    define('DB_USER','');
-    define('DB_PASS','');
-    define('DB_NAME','');
+    define('DB_HOST','localhost');
+    define('DB_USER','root');
+    define('DB_PASS','Data@2020');
+    define('DB_NAME','mvc-framework');
 
     //APPROOT
     // define('APPROOT',dirname(__DIR__) . '/config.php');

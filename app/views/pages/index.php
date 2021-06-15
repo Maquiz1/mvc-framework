@@ -13,7 +13,7 @@
     <div class="wrapper-landing">
         <h1></h1>
         <?php 
-            // var_dump($data);
+            var_dump($data);
             if($data){
                 foreach ($data['user'] as $user){
                     echo "Infomataion: " . $user->user_name . $user->user_email;

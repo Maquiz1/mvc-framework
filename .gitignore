@@ -1,6 +1,2 @@
-$ echo "app/config/config.php" >> .gitignore
-$ echo "app/libraries/Database.php" >> .gitignore
-
-
-$ git rm --cached Database.php
-$ git rm --cached config.php
+app/config/config.php/
+app/libraries/Database.php/
