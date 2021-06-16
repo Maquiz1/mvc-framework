@@ -1,9 +1,9 @@
 <?php 
     class Database {
-        private $dbHost = 'localhost';
-        private $dbUser = 'root';
-        private $dbPass = 'Data@2020';
-        private $dbName = 'mvc-framework';
+        private $dbHost = '';
+        private $dbUser = '';
+        private $dbPass = '';
+        private $dbName = '';
 
         private $statement;
         private $dbHandler;
@@ -18,8 +18,7 @@
                     $this->dbHandler = new PDO($conn,$this->dbUser, $this->dbPass);
     
                     // set the PDO error mode to exception
-                    // $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-                    // return $conn;
+                    $this->dbHandler->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     
                     } catch(PDOException $e) {
                       echo "Connection failed: " . $e->getMessage();
@@ -32,6 +31,7 @@
         // Alows to write queries
         public function query($sql){
             $this->statement = $this->dbHandler->prepare($sql);
+
         }
 
         //bind values

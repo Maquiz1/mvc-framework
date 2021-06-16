@@ -13,15 +13,22 @@
     <div class="wrapper-landing">
         <h1></h1>
         <?php 
-            var_dump($data);
+        // echo "<pre>";
+        //     var_dump($data['users']);
+        // echo "<pre>";
+        
+            echo '<br>';
+            echo '<br>';
             if($data){
-                foreach ($data['user'] as $user){
+                foreach ($data['users'] as $user){
+
                     echo "Infomataion: " . $user->user_name . $user->user_email;
-                    echo "<br>";
+                    echo "<br>";                    
                 }
             }else{
-                echo 'No an user form Database';
+                echo 'No any user from Database';
             }
+
 
         ?>
     </div>
