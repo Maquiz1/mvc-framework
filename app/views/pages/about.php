@@ -1,13 +1,13 @@
 <?php
 
-    include APPROOT . '/views/includes/head.php';  
+    require APPROOT . '/views/includes/head.php';  
     
 ?>
 
 <div id="section-landing">
 
 <?php
-    include APPROOT . '/views/includes/navigation.php';
+    require APPROOT . '/views/includes/navigation.php';
 ?> 
 
     <div class="wrapper-landing">
@@ -18,5 +18,5 @@
 </div>
 
 <?php
-    include APPROOT . '/views/includes/foot.php';
+    require APPROOT . '/views/includes/foot.php';
 ?>

@@ -3,21 +3,21 @@
 class User
 {
 
-    private $servername = "";
-    private $username = "";
-    private $password = "";
-    private $dbname = "";
+    private $servername = "localhost";
+    private $username = "root";
+    private $password = "Data@2020";
+    private $dbname = "mvc-framework";
 
-    private $db;
-    public function __construct(){
-        try {
-            $this->db = new Database;
-        } catch (PDOException $e) {
-            $this->error = $e->getMessage();
-            echo $this->error;
-        }
-        return $this->db;
-    }
+    // private $db;
+    // public function __construct(){
+    //     try {
+    //         $this->db = new Database;
+    //     } catch (PDOException $e) {
+    //         $this->error = $e->getMessage();
+    //         echo $this->error;
+    //     }
+    //     return $this->db;
+    // }
 
     public function getUsers(){
         // try {

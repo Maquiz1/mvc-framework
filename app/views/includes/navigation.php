@@ -13,6 +13,9 @@
             <a href="<?php echo URLROOT; ?>/pages/blog">Blog</a>
         </li>
         <li class="btn-login">
+            <a href="<?php echo URLROOT; ?>/Pages/contact">Contact</a>
+        </li>
+        <li class="btn-login">
             <a href="<?php echo URLROOT; ?>/user/login">Login</a>
         </li>
     </ul>

@@ -1,13 +1,13 @@
 <?php
 
-    include '../includes/head.php';  
+    require APPROOT . '/views/includes/head.php';  
     
 ?>
 
 <div id="section-landing">
 
 <?php
-    include '../includes/navigation.php';
+    require APPROOT . '/views/includes/navigation.php';
 ?>
 
     <div class="wrapper-landing">
@@ -22,7 +22,7 @@
             if($data){
                 foreach ($data['users'] as $user){
 
-                    echo "Infomataion: " . $user->user_name . $user->user_email;
+                    echo "Infomataion: " . "username : " . $user['user_name'] . "  email : " . $user['user_email'];
                     echo "<br>";                    
                 }
             }else{
@@ -36,5 +36,5 @@
 </div> 
 
 <?php
-    include '../includes/foot.php';
+    require APPROOT . '/views/includes/foot.php';
 ?>

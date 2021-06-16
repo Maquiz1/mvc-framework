@@ -1,9 +1,9 @@
 <?php 
     class Database {
-        private $dbHost = '';
-        private $dbUser = '';
-        private $dbPass = '';
-        private $dbName = '';
+        private $dbHost = 'localhost';
+        private $dbUser = 'root';
+        private $dbPass = 'Data@2020';
+        private $dbName = 'mvc-framework';
 
         private $statement;
         private $dbHandler;
