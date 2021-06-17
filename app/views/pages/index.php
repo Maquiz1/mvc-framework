@@ -11,23 +11,19 @@
 ?>
 
     <div class="wrapper-landing">
-        <h1></h1>
-        <?php 
-        // echo "<pre>";
-        //     var_dump($data['users']);
-        // echo "<pre>";
-        
-            echo '<br>';
-            echo '<br>';
-            if($data){
-                foreach ($data['users'] as $user){
+        <h1>One man Crap Software</h1>
+        <?php        
+            // if($data){
+                
 
-                    echo "Infomataion: " . "username : " . $user['user_name'] . "  email : " . $user['user_email'];
-                    echo "<br>";                    
-                }
-            }else{
-                echo 'No any user from Database';
-            }
+            //     foreach ($data['users'] as $user){
+
+            //         echo "username : " . $user['user_name'] . "  email : " . $user['user_email'];
+            //         echo "<br>";                    
+            //     }
+            // }else{
+            //     echo 'No any user from Database';
+            // }
 
 
         ?>

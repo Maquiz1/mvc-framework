@@ -7,8 +7,8 @@
 
     //APPROOT
     // define('APPROOT',dirname(__DIR__) . '/config.php');
-    define('APPROOT',dirname(__DIR__));
-    // define('APPROOT', dirname(dirname(__FILE__)));
+    // define('APPROOT',dirname(__DIR__));
+    define('APPROOT', dirname(dirname(__FILE__)));
 
 
     //URLROOT (DYANAMIC LINKS)
