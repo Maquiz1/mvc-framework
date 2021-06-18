@@ -26,7 +26,7 @@ class Users extends Controller {
             $data = [
                 'username' => trim($_POST['username']),
                 'email' => trim($_POST['email']),
-                'passwor' => trim($_POST['passwor']),
+                'password' => trim($_POST['password']),
                 'confirmPassword' => trim($_POST['confirmPassword']),
                 'usernameError' => '',
                 'emailError' => '',
@@ -35,49 +35,49 @@ class Users extends Controller {
             ];
 
             //REmove special characters from user name
-            $nameValidation = '/^[a-zA-Z0-9]*$/';
-            $paswordValidarion = '/^(.{0/7}|[^a-z]*|[^\d]*)$/i';
+            // $nameValidation = '/^[a-zA-Z0-9]*$/';
+            // $paswordValidarion = '/^(.{0,7}|[^a-z]*|[^\d]*)$/i';
 
             //validate username on letters and numbers
-            if(empty($data['username'])){
-                $data['username'] = 'Please enter username';
-            }elseif (!preg_match($nameValidation, $data['username'])){
-                $data['usernamError'] = 'Name can only contain letters and numbers';
+            // if(empty($data['username'])){
+            //     $data['username'] = 'Please enter username';
+            // }elseif (!preg_match($nameValidation, $data['username'])){
+            //     $data['usernamError'] = 'Name can only contain letters and numbers';
                 
-            }
+            // }
 
-            //validate email
-            if(empty($data['email'])){
-                $data['emailError'] = 'Please enter email';
-            }elseif (!filter_var($data['email'], FILTER_VALIDATE_EMAIL)){
-                $data['emailError'] = 'please enter the correct email';
+            // //validate email
+            // if(empty($data['email'])){
+            //     $data['emailError'] = 'Please enter email';
+            // }elseif (!filter_var($data['email'], FILTER_VALIDATE_EMAIL)){
+            //     $data['emailError'] = 'please enter the correct email';
                 
-            }else{
-                //check if email exists
-                if($this->userModal->findUserByEmail(data['email'])){
-                    $data['emailError'] = 'Email is already registered';
-                }
-            }
+            // }else{
+            //     //check if email exists
+            //     if($this->userModal->findUserByEmail(data['email'])){
+            //         $data['emailError'] = 'Email is already registered';
+            //     }
+            // }
 
 
             //Validate password on lenth and numeric values
-            if(empty($data['password'])){
-                $data['passwordError'] = 'Please enter password';
-            }elseif(strlen($data['password'] < 6)){
-                $dat['passwordError'] = 'Password must be atleast 6 characters';
-            }elseif (!preg_match($passwordValidation, $data['password'])){
-                $data['passwordError'] = 'Password must atleast one numeric value';
+            // if(empty($data['password'])){
+            //     $data['passwordError'] = 'Please enter password';
+            // }elseif(strlen($data['password']) < 6){
+            //     $data['passwordError'] = 'Password must be atleast 6 characters';
+            // }elseif (!preg_match($passwordValidation, $data['password'])){
+            //     $data['passwordError'] = 'Password must atleast contain one numeric value';
                 
-            }
+            // }
 
             //validate confirm password
-            if (empty($data['confirmPassword'])) {
-                $data['confirmPasswordError'] = 'Please enter password';
-            }else {
-                if($data['password'] != $data['confirmPassword']){
-                    $data['passowrdError'] = 'Password do not match';
-                }
-            }
+            // if (empty($data['confirmPassword'])) {
+            //     $data['confirmPasswordError'] = 'Please enter password';
+            // }else {
+            //     if($data['password'] != $data['confirmPassword']){
+            //         $data['passowrdError'] = 'Password do not match';
+            //     }
+            // }
 
 
             //check if errors are empt
@@ -87,17 +87,19 @@ class Users extends Controller {
                     //hash password
                     $data['password'] = password_hash($data['password'],PASSWORD_DEFAULT);
 
-                    //REGISTER USER FORM MODAL FUNCTION
-                    if($this->userModal->register($data)){
+                    // REGISTER USER FORM MODAL FUNCTION
+                    if($this->userModel){  
+                        
+                        $this->userModel->register($data);
+
                         //redirect to the Loin pAGE  
                         header('location: ' . URLROOT . '/users/login');
 
-                    }else{
+                    }
+                    else{
                         die('Something went wrong');
                     }
                 }
-
-
             
         }
         $this->view('users/register', $data);
