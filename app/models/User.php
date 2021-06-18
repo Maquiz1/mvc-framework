@@ -8,15 +8,34 @@ class User
     private $password = "Data@2020";
     private $dbname = "mvc-framework";
 
-    // private $db;
-    // public function __construct(){
-    //     try {
-    //         $this->db = new Database;
-    //     } catch (PDOException $e) {
-    //         $this->error = $e->getMessage();
-    //         echo $this->error;
+    private $db;
+    public function __construct(){
+        try {
+            $this->db = new Database;
+        } catch (PDOException $e) {
+            $this->error = $e->getMessage();
+            echo $this->error;
+        }
+        return $this->db;
+    }
+
+    // public function register(){
+    //     $this->db->query('INSERT INT users (username, email, password) 
+    //     VALUES(:username, :email, :password)');
+
+
+    //     //Bind values
+    //     $this0>db->bind(':username', $data['username']);
+    //     $this0>db->bind(':email', $data['email']);
+    //     $this0>db->bind(':password', $data['password']);
+
+    //     //Execution
+    //     if($this->db->execute()){
+    //         return true;
+    //     }else{
+    //         return false;
     //     }
-    //     return $this->db;
+
     // }
 
     public function getUsers(){
@@ -33,6 +52,22 @@ class User
         // return $result;
 
 
+    // //find the user by email.Email is passed in by the controller
+    // public function findUserByEmail($email){
+    //     //prepared statement
+    //     $this->db->query('SELECT * FROM users WHERE email = :email');
+
+    //     //EMail param will be binded with the email variable
+    //     $this->db->bind(':email', $email);
+
+    //     //check if email exists
+    //     if($this->db->rowCount() > 0){
+    //         return true;
+    //     }else {
+    //         return false;
+    //     }
+
+    // }
 
 
 
