@@ -13,6 +13,7 @@
 </div>
 
 <div class="container-login">
+<?php var_dump($_SESSION); ?>
     <div class="wrapper-login">
 
         <h2>Sign in</h2>
@@ -26,28 +27,12 @@
             <span class="invalidFeedback">
                <?= $data['passwordError']; ?>
             </span>
-
+            <div>
             <button id='submit' type='submit' value='submit'>Submit</button>
+            </div>
             <p class='options'>Not registered yet?<a href="<?= URLROOT; ?>/users/register">Create an account!</a></p>
 
         </form>
-
-      
-        <?php        
-            // if($data){
-                
-
-            //     foreach ($data['users'] as $user){
-
-            //         echo "username : " . $user['user_name'] . "  email : " . $user['user_email'];
-            //         echo "<br>";                    
-            //     }
-            // }else{
-            //     echo 'No any user from Database';
-            // }
-
-
-        ?>
 
     </div>
 </div>
@@ -56,3 +41,5 @@
 <?php
     require APPROOT . '/views/includes/foot.php';
 ?>
+
+

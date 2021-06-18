@@ -105,15 +105,74 @@ class Users extends Controller {
         $this->view('users/register', $data);
     }
 
+
     public function login(){
         $data = [
             'title' => 'Login page',
+            'username' => '',
+            'password' => '',
             'usernameError' => '',
             'passwordError' => ''
         ];
 
+        //check for post
+        if($_SERVER['REQUEST_METHOD'] == 'POST'){
+            //SANITIZE POST DATA (ALLOW ONLY STRIN)
+            $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+
+            $data = [
+                'username' => trim($_POST['username']),
+                'password' => trim($_POST['password']),
+                'usernameError' => '',
+                'passwordError' => ''
+            ];
+
+           
+
+            //ValidATE USERNAME
+            if (empty($data['username'])) {
+                $data['usernameError'] = 'Please enter username';
+            }  
+
+            //VALIDATE PASSWORD
+            if (empty($data['password'])) {
+                $data['passwordError'] = 'Please enter password';
+            }
+
+            //CHECK IF ALL ERROS ARE EMPTY
+            if (empty($data['usernameError']) && empty($data['passwordError'])) {
+                $loggedInUser = $this->userModel->login($data['username'], $data['password']);
+
+                // print_r($loggedInUser);
+
+                if ($loggedInUser) {
+                    $this->createUserSession($loggedInUser);
+                } else {
+                    $data['passwordError'] = 'Passowrd or username Incorrect';
+
+                    $this->view('users/login', $data);
+                }
+            }
+
+            } else{
+            $data = [
+                'username' => '',
+                'password' => '',
+                'usernameError' => '',
+                'passwordError' => ''
+            ];
+        }
+
 
         $this->view('users/login', $data);
+    }
+
+
+    public function createUserSession($user){
+        session_start();
+        $_SESSION['user_id'] = $user->id;
+        $_SESSION['username'] = $user->username;
+        $_SESSION['email'] = $user->email;
     }
 }
 

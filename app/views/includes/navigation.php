@@ -16,7 +16,11 @@
             <a href="<?php echo URLROOT; ?>/Pages/contact">Contact</a>
         </li>
         <li class="btn-login">
+            <? if(isset($_SESSION['user_id'])) : ?>
+            <a href="<?php echo URLROOT; ?>/users/logout">Logout</a>
+            <? else : ?>
             <a href="<?php echo URLROOT; ?>/users/login">Login</a>
+            <? endif; ?>
         </li>
     </ul>
 </div>
